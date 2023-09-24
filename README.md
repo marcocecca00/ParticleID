@@ -12,34 +12,34 @@ Confronto tra diversi modelli di *apprendimento supervisionato* per la *classifi
 
 I dati utilizzati sono il prodotto della risposta di sei diversi rilevatori, usanti mediante la piattaforma di simulazione *[GEANT4](https://geant4.web.cern.ch/)*. Il DataSet è reperibile su *[Kaggle](https://www.kaggle.com/datasets/naharrison/particle-identification-from-detector-responses)*.
 
-## **Composizione DataSet**
+## **DataSet composition**
 
-Le *features* presenti nel dataset utilizzato sono le seguenti:
+The *features* in the dataset used are as follows:
 
-|    Features    |              Significato              | Unità di Misura |
+|    Features    |              Meaning              | Dimension |
 | :-------------: | :------------------------------------: | :--------------: |
-|  **id**  |            Nome Particella            |    $NoDim$    |
-|   **p**   |           Quantità di moto           |    $GeV/c$    |
-| **theta** |          Angolo di Scattering          |     $rad$     |
-| **beta** | Rapporto tra la velocità $v$ e $c$ |    $NoDim$    |
-| **nphe** |        Numero di fotoelettroni        |    $NoDim$    |
-|  **ein**  |          Energia in ingresso          |     $GeV$     |
-| **eout** |           Energia in uscita           |     $GeV$     |
+|  **id**  |           Particle Name            |    $NoDim$    |
+|   **p**   |           Momentum           |    $GeV/c$    |
+| **theta** |          Scattering angle          |     $rad$     |
+| **beta** | Relativistic Veliocityu $v$ e $c$ |    $NoDim$    |
+| **nphe** |       Number of Photoelectrons       |    $NoDim$    |
+|  **ein**  |          Input Energy         |     $GeV$     |
+| **eout** |           Output Energy           |     $GeV$     |
 
 A ciascun *id*  inoltre è associata una precisa particella:
 
-|        id        | Particella |              Simbolo              | Massa (MeV) |
+|        id        | Particle |              Symbol              | Mass (MeV) |
 | :--------------: | :--------: | :-------------------------------: | :---------: |
-| **(-11)** | Positroni |              $e^+$              |  $0.51$  |
-| **(211)** |   Pioni   | $\pi \quad (\pi^0,\pi^+,\pi^-)$ |   $137$   |
-| **(321)** |   Kaoni   |     $K \quad (K^0,K^+,K^-)$     |   $495$   |
-| **(2212)** |  Protoni  |               $p$               |   $940$   |
+| **(-11)** | Positron |              $e^+$              |  $0.51$  |
+| **(211)** |   Pion   | $\pi \quad (\pi^0,\pi^+,\pi^-)$ |   $137$   |
+| **(321)** |   Kaon   |     $K \quad (K^0,K^+,K^-)$     |   $495$   |
+| **(2212)** |  Proton  |               $p$               |   $940$   |
 
-Indipendentemente dal modello fisco alla base, ossia il [Modello Standard](https://it.wikipedia.org/wiki/Modello_standard), è sufficiente sapere che ciascuna particella è caratterizzata da un determinato set di valori e in particolare dalla loro *massa a riposo*.
+Regardless of the underlying physical model, i.e., the [Standard Model](https://it.wikipedia.org/wiki/Modello_standard), it is sufficient to know that each particle is characterized by a certain set of values and in particular their *rest mass*.
 
-## **Analisi Esplorativa & Preparazione dei Dati**
+## **Exploratory Analysis & Data Preparation**.
 
-Per la preparazione preliminare dei dati sono state sfruttate le seguenti librerie:
+The following libraries were exploited for preliminary data preparation:
 
 - Numpy
 - MatPlotLib
@@ -47,34 +47,34 @@ Per la preparazione preliminare dei dati sono state sfruttate le seguenti librer
 - Seaborn
 - Imbalanced Learn
 
-Inoltre osservazioni fisiche e intuitive hanno permesso di preparare e semplificare ulteriormente il dataset.
+In addition, physical and intuitive observations enabled further preparation and simplification of the dataset.
 
-Infine prima della costruzione dei modelli di MachineLearning e il loro successivo addestramento è stata effettuata una procedura di **resampling** per correggere il bilanciamento del dataset.
+Finally, prior to the construction of the MachineLearning models and their subsequent training, a **resampling** procedure was performed to correct the balance of the dataset.
 
-## **Costruzione dei modelli & Addestramento**
+## **Model Construction & Training**
 
-Per la scelta dei modelli si è optato per un apprendimento supervisionato, in particolare si sono sfruttati dei *classificatori*. Quest'ultimi, basati sugli algoritmi citati precedentemente, sono offerti dalla libreria **Scikit Learn**:
+Supervised learning was chosen for the choice of models, in particular, *classifiers* were exploited. The latter, based on the previously mentioned algorithms, are offered by the **Scikit Learn** library:
 
 - DecisionTreeClassifier
 - RandomForestClassifier
 - MLPClassifier
 - KNeighborsClassifier
 
-In particolare per il **RandomForestClassifier** è stata valutata l'*importanza delle features* per l'addestramento del modello, confermando ciò che era stato dedotto nell'analisi esplorativa.
+Specifically for the **RandomForestClassifier** the *importance of features* for model training was evaluated, confirming what had been inferred in the exploratory analysis.
 
-Mentre per **MLPClassifier** si è scelto di effettuare una *ottimizzazione degli iperparametri*, mediante una *GridSearch*.
+While for **MLPClassifier** an *optimization of hyperparameters* was chosen, by means of a *GridSearch*.
 
-## **Confronto & Conclusione**
+## **Comparison & Conclusion**
 
-Infine si è utilizzata come metrica per valutare l'efficienza dei modelli, l'*accuracy*  e ,visivamente, delle *matrici di confusione*. I risultati non mostrano una predominanza di un modello rispetto ad un altro, ma il KNeighborsClassifier è il meno efficiente.
+Finally, *accuracy* and ,visually, *confusion matrices* were used as metrics to evaluate the efficiency of the models. The results do not show a predominance of one model over another, but the KNeighborsClassifier is the least efficient.
 
-|          Classifier          | Accuracy |
+| Classifier | Accuracy |
 | :--------------------------: | :------: |
-|   **Decision Tree**   |  89.6%  |
-|   **Random Forest**   |  93.2%  |
-|   **ML Perceptron**   |  93.1%  |
-| **K-Nearest Neighbor** |  88.6%  |
+| **Decision Tree** | | 89.6% |
+| **Random Forest** | | 93.2% |
+| **ML Perceptron** | 93.1% |
+| **K-Nearest Neighbor** | 88.6% |
 
-## **Autori**
+## **Authors**
 
-- [Marco Cecca](https://github.com/marcocecca00) - marco.cecca.02.25@gmail.com
+- [Marco Cecca](https://github.com/marcocecca00) - marcoccecca@gmail.com
