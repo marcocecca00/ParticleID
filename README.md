@@ -1,16 +1,16 @@
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
 
-<h1> Classificazione dei prodotti di Scattering Elettrone-Protone</h1>
+<h1> Product Classification of Electron-Proton Scattering</h1>
 
-Confronto tra diversi modelli di *apprendimento supervisionato* per la *classificazione* di particelle prodotte durante uno scattering inelastico elettrone-protone. L'obiettivo è quello di identificare le particelle e valutare il migliore modello tra i seguenti:
+Comparison of different *supervised learning* models for the *classification* of particles produced during inelastic electron-proton scattering. The goal is to identify particles and evaluate the best model among the following:
 
 - **Decision Tree**
 - **Random Forest**
 - **Multilayer Perceptron**
 - **K-Nearest Neighbor**
 
-I dati utilizzati sono il prodotto della risposta di sei diversi rilevatori, usanti mediante la piattaforma di simulazione *[GEANT4](https://geant4.web.cern.ch/)*. Il DataSet è reperibile su *[Kaggle](https://www.kaggle.com/datasets/naharrison/particle-identification-from-detector-responses)*.
+The data used are the product of the response of six different detectors, usanti through the simulation platform *[GEANT4](https://geant4.web.cern.ch/)*. The DataSet can be found at *[Kaggle](https://www.kaggle.com/datasets/naharrison/particle-identification-from-detector-responses)*.
 
 ## **DataSet composition**
 
