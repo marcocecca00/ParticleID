@@ -70,8 +70,8 @@ Finally, *accuracy* and ,visually, *confusion matrices* were used as metrics to 
 
 | Classifier | Accuracy |
 | :--------------------------: | :------: |
-| **Decision Tree** | | 89.6% |
-| **Random Forest** | | 93.2% |
+| **Decision Tree** |  89.6% |
+| **Random Forest** |  93.2% |
 | **ML Perceptron** | 93.1% |
 | **K-Nearest Neighbor** | 88.6% |
 
